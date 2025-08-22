@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DukaSales Tracker</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>DukaSales Tracker</h1>
+      <p class="intro">
+        Keep on top of your sales. Record every transaction, monitor key
+        metrics and watch your business grow with clear visual insights.
+      </p>
+      <!-- Sale entry form -->
+      <form id="sale-form" class="form">
+        <div class="form-row">
+          <label>
+            Product Name
+            <input type="text" id="product-name" placeholder="e.g. Sugar" required />
+          </label>
+          <label>
+            Quantity
+            <input type="number" id="quantity" min="1" step="1" placeholder="0" required />
+          </label>
+        </div>
+        <div class="form-row">
+          <label>
+            Price per Unit (KES)
+            <input
+              type="number"
+              id="unit-price"
+              min="0.00"
+              step="0.01"
+              placeholder="0.00"
+              required
+            />
+          </label>
+          <label>
+            Date
+            <input type="date" id="sale-date" required />
+          </label>
+        </div>
+        <button type="submit" class="btn primary">Add Sale</button>
+      </form>
+      <!-- Summary metrics -->
+      <div class="metrics">
+        <div class="metric-card" id="total-sales-card">
+          <h3>Total Sales</h3>
+          <p id="total-sales">0</p>
+        </div>
+        <div class="metric-card" id="total-revenue-card">
+          <h3>Total Revenue (KES)</h3>
+          <p id="total-revenue">0.00</p>
+        </div>
+        <div class="metric-card" id="avg-sale-card">
+          <h3>Average Sale (KES)</h3>
+          <p id="average-sale">0.00</p>
+        </div>
+      </div>
+      <!-- Sales table -->
+      <div class="list" id="sales-list">
+        <h2>Sales History</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th>Quantity</th>
+              <th>Unit Price</th>
+              <th>Total</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody id="sales-table-body"></tbody>
+        </table>
+      </div>
+      <!-- Chart -->
+      <div class="chart-wrapper">
+        <canvas id="salesChart"></canvas>
+      </div>
+    </div>
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
